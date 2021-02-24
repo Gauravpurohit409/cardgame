@@ -21,12 +21,15 @@ function Card(props){
                         props.clickedCards.map((card) =>{
                         card.style.transform = "rotateY(180deg)";
                         card.style.backgroundColor = "black";
+                        return <></>
                         })
                 }
                 else if(props.clickedCards[0].innerHTML === props.clickedCards[1].innerHTML)
                 {
                     props.clickedCards.map((card) =>{
                         props.isClickable[card.id] = false;
+                        return <></>
+                       
                     })
                 }
 
@@ -40,7 +43,7 @@ function Card(props){
                 e.target.style.backgroundColor = "white";
                 props.setClickedCards(newClickedCards);       
             }
-            console.log(props.isClickable)
+            // console.log(props.isClickable)
         }
     }
 
@@ -52,7 +55,7 @@ function Card(props){
     return    <>
         <div className="card" >
             <div className="card-inner"  id = {props.index} onClick = {handleClick}>
-                    {props.content}   
+                    {props.number}   
                 </div> 
             
         </div>

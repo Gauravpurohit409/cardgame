@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../Card';
-import Timer from '../Timer';
 import "./index.css";
 
 
@@ -49,14 +48,14 @@ const Cards = (props) => {
         // console.log(newArray);
         setNumberArray(newArray);
         setClickAbility(clickable);
-    },[])
+    },[props.number])
     
     return (
         <>
         <div className= "cards">
         
         {numberArray.map((number,index) =>{
-          return  <Card content = {number} check ={check} isClickable = {isClickable} setClickAbility = {setClickAbility} index = {index} clickedCards = {clickedCards} setClickedCards = {setClickedCards} />
+          return  <Card number = {number} check ={check} isClickable = {isClickable} setClickAbility = {setClickAbility} index = {index} clickedCards = {clickedCards} setClickedCards = {setClickedCards} />
         })}
         </div>
 

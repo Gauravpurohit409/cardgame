@@ -32,7 +32,6 @@ function Button(props){
 }
 function App() {
 
-  const [time,setTime] = useState([]);
   const [number,setNumber] = useState(0);
   const[stopTimer,setStopTimer] = useState(false);  
   const [renderCards,setRenderCards] = useState(false);
