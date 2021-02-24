@@ -1,0 +1,50 @@
+import React from 'react';
+function Card(props){
+
+         
+    const handleClick = (e) =>{
+        if (props.isClickable[e.target.id])
+        {
+            if (props.clickedCards.length >= 1)
+            {
+                if(props.clickedCards[0].innerHTML !== e.target.innerHTML)
+                {
+                    props.clickedCards[0].style.transform = "rotateY(180deg)";
+                    props.clickedCards[0].style.backgroundColor = "black";
+                    
+                    e.target.style.transform = "rotateY(180deg)";
+                    e.target.style.backgroundColor = "black";
+                    
+                    props.setClickedCards([e.target]);
+                }
+                else{
+                    
+                        props.isClickable[props.clickedCards[0].id] = false;
+                        props.isClickable[e.target.id] = false;
+                }
+                e.target.style.transform  =  "rotateY(0deg)";
+                e.target.style.backgroundColor = "white";
+            }    
+            else{
+                const newClickedCards = [...props.clickedCards,e.target];
+                props.setClickedCards(newClickedCards);
+                e.target.style.transform  =  "rotateY(0deg)";
+                e.target.style.backgroundColor = "white";
+                
+            }
+        }
+    }
+
+
+    return    <>
+        <div className="card" >
+            <div className="card-inner"  id = {props.index} onClick = {handleClick}>
+                    {props.content}   
+                </div> 
+            
+        </div>
+    </>
+}
+
+
+export default Card;
